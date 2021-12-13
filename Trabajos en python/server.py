@@ -20,18 +20,22 @@ def broadcast(message, _client):
         if client != _client:
             client.send(message)
 
+def disconnected_client(client):
+    index = clients.index(client)
+    username = usernames[index]
+    broadcast(f"ChatBot: {username} disconnected".encode('utf-8'), client)
+    clients.remove(client)
+    usernames.remove(username)
+    client.close()
+    print(f"{username} disconnected")
+
 def handle_messages(client):
     while True:
         try:
             message = client.recv(1024)
             broadcast(message, client)
         except:
-            index = clients.index(client)
-            username = usernames[index]
-            broadcast(f"ChatBot: {username} disconnected".encode('utf-8'), client)
-            clients.remove(client)
-            usernames.remove(username)
-            client.close()
+            disconnected_client(client)
             break
 
 
@@ -39,7 +43,7 @@ def receive_connections():
     while True:
         client, address = server.accept()
 
-        client.send("@username".encode("utf-8"))
+       # client.send("@username".encode("utf-8"))
         username = client.recv(1024).decode('utf-8')
 
         clients.append(client)

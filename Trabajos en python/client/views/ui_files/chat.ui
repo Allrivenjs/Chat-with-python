@@ -74,10 +74,10 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="res/res.qrc">:/icons/iconmonstr-user-20.svg</pixmap>
+     <pixmap>:/icons/iconmonstr-user-20.svg</pixmap>
     </property>
    </widget>
-   <widget class="QPlainTextEdit" name="plainTextEdit">
+   <widget class="QPlainTextEdit" name="inLineTextEdit">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -106,7 +106,7 @@
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="logoutButton">
     <property name="geometry">
      <rect>
       <x>60</x>
@@ -119,6 +119,9 @@
      <font>
       <family>DejaVu Sans</family>
      </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
@@ -199,7 +202,7 @@ QPushButton:hover {
      </property>
     </widget>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="messageLineEdit">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -220,7 +223,7 @@ QPushButton:hover {
      <string>Type something to send...</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="sendbutton">
     <property name="geometry">
      <rect>
       <x>330</x>
@@ -233,6 +236,9 @@ QPushButton:hover {
      <font>
       <family>DejaVu Sans</family>
      </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -249,7 +255,7 @@ QPushButton:hover {
      <string>Send</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit">
+   <widget class="QTextEdit" name="chatTestEdit">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -290,9 +296,9 @@ border: 1px solid white;
    </widget>
    <zorder>label_3</zorder>
    <zorder>frame_4</zorder>
-   <zorder>lineEdit</zorder>
-   <zorder>pushButton</zorder>
-   <zorder>textEdit</zorder>
+   <zorder>messageLineEdit</zorder>
+   <zorder>sendbutton</zorder>
+   <zorder>chatTestEdit</zorder>
   </widget>
  </widget>
  <resources>
