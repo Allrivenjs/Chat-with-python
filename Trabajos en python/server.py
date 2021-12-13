@@ -43,7 +43,7 @@ def receive_connections():
     while True:
         client, address = server.accept()
 
-       # client.send("@username".encode("utf-8"))
+        
         username = client.recv(1024).decode('utf-8')
 
         clients.append(client)

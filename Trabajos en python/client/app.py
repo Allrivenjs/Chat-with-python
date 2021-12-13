@@ -1,8 +1,9 @@
-
 from PySide2.QtWidgets import QApplication
 from controllers.login import LoginWindow
 import sys
 
+
+#Inicializamos las ventanas al ejecutarse el script
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = LoginWindow()
