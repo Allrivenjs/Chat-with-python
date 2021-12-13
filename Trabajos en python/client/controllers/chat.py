@@ -1,5 +1,7 @@
 from PySide2.QtWidgets import QWidget
+from PySide2.QtCore import Qt
 from views.chat import ChatForm
+from controllers.login import LoginWindow
 
 import socket
 import threading
@@ -33,12 +35,19 @@ class ChatWindow(QWidget, ChatForm):
         self.client.connect(connection_data)
 
     #creamos los thread para cada cliente
-        receive_thread = threading.Thread(target=self.receive_messages())
+        receive_thread = threading.Thread(target=self.receive_messages)
         #cerramos el hilo cuando se cierra la apliacion
         receive_thread.daemon = True
         receive_thread.start()
     #enviamos el username
         self.client.send(self.username.encode('utf-8'))
+
+
+    def logout(self):
+        self.login_window = LoginWindow()
+        self.login_window.show()
+        self.client.close()
+        self.close()
 
 ## aqui obtenemos los mensajes que llegan al servidor
     def receive_messages(self):
@@ -46,6 +55,7 @@ class ChatWindow(QWidget, ChatForm):
             try:
                 message = self.client.recv(1024).decode('utf-8')
                 self.chatTextEdit.append(message)
+                self.chatTextEdit.setAlignment(Qt.AlignLeft)
             except:
                 self.client.close()
                 break

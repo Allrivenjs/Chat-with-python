@@ -1,3 +1,4 @@
+
 from PySide2.QtWidgets import QApplication
 from controllers.login import LoginWindow
 import sys

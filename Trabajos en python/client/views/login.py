@@ -13,13 +13,13 @@ from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
 
-class loginForm(object):
+class LoginForm(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
         Form.resize(316, 242)
         Form.setMinimumSize(QSize(0, 242))
-        Form.setStyleSheet(u"background-color: #2980b9;")
+        Form.setStyleSheet(u"background-color: #FEFCFB;")
         self.frame = QFrame(Form)
         self.frame.setObjectName(u"frame")
         self.frame.setGeometry(QRect(0, 0, 316, 80))
@@ -37,13 +37,14 @@ class loginForm(object):
         self.label_2.setObjectName(u"label_2")
         self.label_2.setGeometry(QRect(20, 130, 81, 21))
         self.label_2.setFont(font)
-        self.label_2.setStyleSheet(u"color: white;")
+        self.label_2.setStyleSheet(u"color: black;")
         self.usernameLineEdit = QLineEdit(Form)
         self.usernameLineEdit.setObjectName(u"usernameLineEdit")
         self.usernameLineEdit.setGeometry(QRect(120, 120, 181, 36))
+        self.usernameLineEdit.setStyleSheet(u"color:black;")
         self.joinButton = QPushButton(Form)
         self.joinButton.setObjectName(u"joinButton")
-        self.joinButton.setGeometry(QRect(100, 190, 95, 36))
+        self.joinButton.setGeometry(QRect(100, 180, 95, 36))
         self.joinButton.setFont(font)
         self.joinButton.setStyleSheet(u"QPushButton {\n"
 "	background-color: #2ecc71;\n"
@@ -64,6 +65,6 @@ class loginForm(object):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
         self.label.setText(QCoreApplication.translate("Form", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt; vertical-align:sub;\">Python Chat</span></p></body></html>", None))
         self.label_2.setText(QCoreApplication.translate("Form", u"<html><head/><body><p><span style=\" font-size:12pt;\">Nickname</span></p></body></html>", None))
-        self.joinButton.setText(QCoreApplication.translate("Form", u"Iniciar", None))
+        self.joinButton.setText(QCoreApplication.translate("Form", u"Login", None))
     # retranslateUi
 
