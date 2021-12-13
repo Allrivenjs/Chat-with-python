@@ -19,6 +19,7 @@ def broadcast(message, _client):
     for client in clients:
         if client != _client:
             client.send(message)
+            
 
 def disconnected_client(client):
     index = clients.index(client)
