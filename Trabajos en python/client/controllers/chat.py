@@ -55,19 +55,19 @@ class ChatWindow(QWidget, ChatForm):
     def receive_messages(self):
         while True:
             try:
-                message = self.client.recv(1024).decode('utf-8')
-                self.chatTextEdit.append(message)
-                self.chatTextEdit.setAlignment(Qt.AlignLeft)
+                message = self.client.recv(1024).decode('utf-8') #obtenemos el mensaje del servidor
+                self.chatTextEdit.append(message) #cargamos el mensaje en el chat
+                self.chatTextEdit.setAlignment(Qt.AlignLeft)# alineamos el texto
             except:
-                self.client.close()
+                self.client.close() #cerramos la conexion
                 break
-    
+    #enviamos mensajes
     def send_messages(self):
         #obtenemos el mensaje
         message = self.messageLineEdit.text()
         #le damos formato
-        message = f"{self.username}: {message}"
-        self.client.send(message.encode('utf-8'))
+        message_send = f"{self.username}: {message}"
+        self.client.send(message_send.encode('utf-8'))
         self.chatTextEdit.append(message)
-        self.chatTextEdit.setAlignment(Qt.AlignRight)
-        self.messageLineEdit.clear()
+        self.chatTextEdit.setAlignment(Qt.AlignRight)# alinemaos el texto
+        self.messageLineEdit.clear()#limpiamos el input
